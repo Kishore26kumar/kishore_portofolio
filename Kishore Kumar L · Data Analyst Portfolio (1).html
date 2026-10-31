@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kishore Kumar L · Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EAF0F5; --paper2:#F7FAFC; --ink:#10253A; --muted:#51657A; --line:#C5D2DE;
+  --gold:#F2A900; --teal:#0E7C86; --coral:#E4572E; --console:#10253A; --console-ink:#E8F0F7;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0C1824; --paper2:#13263A; --ink:#E6EEF6; --muted:#9BB0C4; --line:#27415A; --console:#060E16; --console-ink:#E8F0F7; color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#0C1824; --paper2:#13263A; --ink:#E6EEF6; --muted:#9BB0C4; --line:#27415A; --console:#060E16; --console-ink:#E8F0F7; color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:36px 36px;background-attachment:fixed}
+body::after{content:"";position:fixed;inset:0;background:var(--paper);opacity:.82;z-index:-1;pointer-events:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:14px;flex-wrap:wrap}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px}
+nav div{display:flex;gap:18px;font-size:15px}
+nav a{text-decoration:none;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--gold)}
+/* hero */
+.hero{padding:34px 0 70px;display:grid;grid-template-columns:1.05fr 1fr;gap:42px;align-items:center}
+.hero h1{font-size:clamp(48px,8.4vw,104px);font-weight:800;letter-spacing:-.035em}
+.hero h1 span{display:block}
+.hero h1 .l{color:var(--gold);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.hero p.lead{font-size:20px;max-width:30ch;margin:22px 0 0;color:var(--muted)}
+.badge{display:inline-block;margin-top:22px;padding:7px 14px;border:2px solid var(--ink);border-radius:999px;font-size:15px;background:var(--paper2)}
+.badge i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--teal);margin-right:8px;box-shadow:0 0 0 4px rgba(14,124,134,.25)}
+/* console */
+.console{background:var(--console);color:var(--console-ink);border-radius:10px;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--gold);overflow:hidden}
+.console .bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid #27415A;font-size:13px;color:#9BB0C4;align-items:center}
+.console .bar s{width:11px;height:11px;border-radius:50%;background:#E4572E;text-decoration:none}
+.console .bar s:nth-child(2){background:#F2A900}.console .bar s:nth-child(3){background:#0E9F8E}
+.console .bar em{margin-left:8px;font-style:normal}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:14px 14px 4px}
+.chips button{font:700 13px "JetBrains Mono",monospace;background:transparent;color:var(--console-ink);border:1.5px solid #3C5A78;border-radius:6px;padding:6px 11px;cursor:pointer}
+.chips button:hover{border-color:var(--gold)}
+.chips button[aria-pressed="true"]{background:var(--gold);color:#10253A;border-color:var(--gold)}
+.sql{padding:12px 16px;min-height:76px;font-size:14px;line-height:1.6;color:#BFD3E6;word-break:break-word}
+.sql .k{color:#F2A900}.sql .c{display:inline-block;width:8px;height:1em;background:#F2A900;vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.res{padding:0 14px 16px;overflow-x:auto;max-height:290px}
+.res table{border-collapse:collapse;width:100%;font-size:14px}
+.res th{text-align:left;color:#F2A900;font:700 12px "JetBrains Mono",monospace;padding:7px 10px;border-bottom:1px solid #3C5A78;white-space:nowrap}
+.res td{padding:8px 10px;border-bottom:1px solid #1C3550;vertical-align:top}
+.res .n{font-size:12px;color:#7F98B0;padding:8px 2px 0}
+/* sections */
+section{padding:66px 0;border-top:2px solid var(--ink)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sh h2{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-.025em}
+.sh p{margin:0;color:var(--muted);max-width:44ch}
+.proj{display:grid;grid-template-columns:1fr 1.15fr;gap:34px;align-items:center;margin-bottom:56px}
+.proj:nth-child(even){grid-template-columns:1.15fr 1fr}
+.proj:nth-child(even) .board{order:-1}
+.proj h3{font-size:30px;font-weight:800;margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.tags span{font-size:13px;padding:3px 10px;border:1.5px solid var(--ink);border-radius:5px;background:var(--paper2)}
+.proj ul{padding-left:19px;margin:12px 0}.proj li{margin-bottom:7px}
+.btn{display:inline-block;margin-top:6px;padding:10px 18px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;border-radius:6px;border:2px solid var(--ink)}
+.btn:hover{background:var(--gold);color:#10253A}
+.board{background:var(--paper2);border:2px solid var(--ink);border-radius:10px;padding:14px;box-shadow:6px 6px 0 var(--teal)}
+.board .pg{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.board .pg b{font-size:12px;padding:3px 9px;border-radius:5px;border:1.5px solid var(--line);color:var(--muted);font-weight:500}
+.board .pg b.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.kpis div{border:1.5px solid var(--line);border-radius:6px;padding:7px 8px;font-size:12px;color:var(--muted)}
+.kpis div::after{content:"";display:block;height:7px;margin-top:6px;border-radius:4px;background:var(--gold)}
+.kpis div:nth-child(2)::after{width:70%;background:var(--teal)}.kpis div:nth-child(3)::after{width:55%;background:var(--coral)}.kpis div:nth-child(4)::after{width:82%;background:var(--ink)}
+.viz{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+.viz svg{width:100%;height:auto;display:block;border:1.5px solid var(--line);border-radius:6px;background:var(--paper)}
+.cap{font-size:12px;color:var(--muted);margin:10px 0 0}
+/* dax */
+.dax{background:var(--console);color:var(--console-ink);border-radius:10px;padding:22px;border:2px solid var(--ink);overflow-x:auto;font-size:14px;line-height:1.75;box-shadow:8px 8px 0 var(--coral)}
+.dax .f{color:#F2A900}.dax .t{color:#6FD3DC}.dax .m{color:#7F98B0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.two p{margin-top:0}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0 0 0 26px;border-left:3px solid var(--ink)}
+.tl li{position:relative;padding:0 0 30px 12px}
+.tl li::before{content:"";position:absolute;left:-36px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--gold);border:3px solid var(--ink)}
+.tl li.now::before{background:var(--teal)}
+.tl h3{font-size:22px}.tl small{display:block;color:var(--muted);font-size:14px;margin:3px 0 6px}
+.tl p{margin:0;max-width:62ch}
+.certs{display:flex;gap:14px;flex-wrap:wrap}
+.certs div{flex:1 1 260px;border:2px solid var(--ink);border-radius:8px;padding:14px 16px;background:var(--paper2)}
+.certs b{display:block}
+.cta{text-align:left}
+.cta h2{font-size:clamp(40px,7vw,84px);font-weight:800;letter-spacing:-.03em;max-width:14ch}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.social .btn{margin-top:0}.btn.alt{background:var(--gold);color:#10253A}.btn.alt:hover{background:var(--ink);color:var(--paper)}
+footer{padding:26px 0 40px;border-top:2px solid var(--ink);color:var(--muted);font-size:14px}
+@media(max-width:860px){
+  .hero,.proj,.proj:nth-child(even),.two{grid-template-columns:1fr}
+  .proj:nth-child(even) .board{order:0}
+  .viz{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sql .c{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <b>Kishore Kumar L</b>
+  <div><a href="#work">Projects</a><a href="#dax">DAX</a><a href="#path">Journey</a><a href="#contact">Contact</a><a href="https://github.com/Kishore26kumar" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/kishore-l-204b5b262/" target="_blank" rel="noopener">LinkedIn</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1><span>Kishore</span><span class="l">Kumar L</span></h1>
+    <p class="lead">I turn raw rows into dashboards people actually use.</p>
+    <span class="badge"><i></i>Data Science Intern · Chennai · M.Sc. CS 2026</span>
+    <div class="social"><a class="btn" href="https://github.com/Kishore26kumar" target="_blank" rel="noopener">GitHub: Kishore26kumar</a><a class="btn alt" href="https://www.linkedin.com/in/kishore-l-204b5b262/" target="_blank" rel="noopener">LinkedIn: Kishore L</a></div>
+  </div>
+  <div class="console" role="region" aria-label="Query my profile">
+    <div class="bar"><s></s><s></s><s></s><em class="mono">query_kishore.sql</em></div>
+    <div class="chips" id="chips" role="group" aria-label="Pick a query"></div>
+    <div class="sql mono" id="sql" aria-live="polite"></div>
+    <div class="res" id="res"></div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="sh"><h2>Dashboards I built</h2><p>Both projects run on the same path: clean the data, model it, then report it. Layouts below are sketches of the real dashboards.</p></div>
+
+  <article class="proj">
+    <div>
+      <h3>Retail Sales Performance &amp; Customer Intelligence</h3>
+      <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Python</span><span>MySQL</span></div>
+      <ul>
+        <li>3-page interactive dashboard covering sales, products, customer segments and sales channels.</li>
+        <li>SQL (joins, aggregations, CTEs) to prepare data; Pandas to profile it before loading.</li>
+        <li>Data model linking Sales, Product, Customer and Date tables.</li>
+        <li>KPIs: Total Revenue, Orders, Customers, Average Order Value, plus MTD, QTD, YTD and YoY growth.</li>
+      </ul>
+      <a class="btn" href="https://github.com/Kishore26kumar/Retail-Sales-Performance-Customer-Intelligence-Dashboard-" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="board" aria-hidden="true">
+      <div class="pg"><b class="on">Overview</b><b>Products</b><b>Customers</b></div>
+      <div class="kpis"><div>Revenue</div><div>Orders</div><div>Customers</div><div>Avg order</div></div>
+      <div class="viz">
+        <svg viewBox="0 0 220 110"><polyline points="8,86 40,70 72,76 104,48 136,56 168,28 212,18" fill="none" stroke="#0E7C86" stroke-width="3"/><polyline points="8,96 40,88 72,90 104,70 136,74 168,58 212,50" fill="none" stroke="#F2A900" stroke-width="3" stroke-dasharray="5 4"/></svg>
+        <svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="34" fill="none" stroke="#F2A900" stroke-width="16"/><circle cx="55" cy="55" r="34" fill="none" stroke="#0E7C86" stroke-width="16" stroke-dasharray="90 124" transform="rotate(-90 55 55)"/><circle cx="55" cy="55" r="34" fill="none" stroke="#E4572E" stroke-width="16" stroke-dasharray="32 182" stroke-dashoffset="-90" transform="rotate(-90 55 55)"/></svg>
+        <svg viewBox="0 0 220 90"><rect x="10" y="40" width="22" height="42" fill="#0E7C86"/><rect x="42" y="22" width="22" height="60" fill="#0E7C86"/><rect x="74" y="50" width="22" height="32" fill="#0E7C86"/><rect x="106" y="12" width="22" height="70" fill="#F2A900"/><rect x="138" y="34" width="22" height="48" fill="#0E7C86"/><rect x="170" y="56" width="22" height="26" fill="#0E7C86"/></svg>
+        <svg viewBox="0 0 110 90"><rect x="4" y="4" width="62" height="82" fill="#0E7C86"/><rect x="68" y="4" width="38" height="46" fill="#F2A900"/><rect x="68" y="52" width="38" height="34" fill="#E4572E"/></svg>
+      </div>
+      <p class="cap">Line, donut, bar and treemap visuals with slicers and KPI cards.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div>
+      <h3>Uber Ride Data Analytics</h3>
+      <div class="tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>MySQL</span><span>Power BI</span><span>DAX</span></div>
+      <ul>
+        <li>Cleaned the ride data and ran exploratory analysis with Python, Pandas and NumPy.</li>
+        <li>MySQL joins, CTEs and window functions to analyze ride bookings and revenue.</li>
+        <li>Power BI dashboard with five views: overall, vehicle performance, revenue, cancellations and customer ratings.</li>
+      </ul>
+      <a class="btn" href="https://github.com/Kishore26kumar/Uber-Ride-Data-Analytics" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="board" aria-hidden="true">
+      <div class="pg"><b class="on">Overall</b><b>Vehicles</b><b>Revenue</b><b>Cancels</b><b>Ratings</b></div>
+      <div class="kpis"><div>Bookings</div><div>Revenue</div><div>Cancelled</div><div>Rating</div></div>
+      <div class="viz">
+        <svg viewBox="0 0 220 110"><path d="M8,90 L40,64 L72,72 L104,40 L136,52 L168,22 L212,34 L212,100 L8,100 Z" fill="#0E7C86" opacity=".35"/><polyline points="8,90 40,64 72,72 104,40 136,52 168,22 212,34" fill="none" stroke="#0E7C86" stroke-width="3"/></svg>
+        <svg viewBox="0 0 110 110"><rect x="12" y="62" width="16" height="36" fill="#F2A900"/><rect x="36" y="30" width="16" height="68" fill="#0E7C86"/><rect x="60" y="48" width="16" height="50" fill="#0E7C86"/><rect x="84" y="74" width="16" height="24" fill="#E4572E"/></svg>
+        <svg viewBox="0 0 220 90"><rect x="10" y="8" width="170" height="14" fill="#0E7C86"/><rect x="10" y="30" width="130" height="14" fill="#0E7C86"/><rect x="10" y="52" width="90" height="14" fill="#F2A900"/><rect x="10" y="74" width="50" height="14" fill="#E4572E"/></svg>
+        <svg viewBox="0 0 110 90"><path d="M10,70 A45,45 0 0 1 100,70" fill="none" stroke="#C5D2DE" stroke-width="14"/><path d="M10,70 A45,45 0 0 1 82,32" fill="none" stroke="#F2A900" stroke-width="14"/></svg>
+      </div>
+      <p class="cap">Five report pages from booking volume down to customer ratings.</p>
+    </div>
+  </article>
+</section>
+
+<section id="dax">
+  <div class="sh"><h2>How I think in DAX</h2><p>Time intelligence is where dashboards earn their keep. This is the shape of the year-over-year measure behind my retail report.</p></div>
+  <div class="two">
+    <pre class="dax mono" style="margin:0"><span class="m">// Year-over-Year Revenue Growth</span>
+YoY Growth % =
+<span class="f">VAR</span> Current = [Total Revenue]
+<span class="f">VAR</span> Prior =
+    <span class="f">CALCULATE</span>(
+        [Total Revenue],
+        <span class="f">SAMEPERIODLASTYEAR</span>( <span class="t">'Date'[Date]</span> )
+    )
+<span class="f">RETURN</span>
+    <span class="f">DIVIDE</span>( Current - Prior, Prior )</pre>
+    <div>
+      <p>Same toolkit, different questions: <b>MTD, QTD, YTD, MoM</b> and <b>DATEADD</b> for comparing periods, <b>CALCULATE</b>, <b>FILTER</b> and <b>ALL</b> for controlling context, <b>DIVIDE</b> so a zero never breaks a card.</p>
+      <p>Behind every measure sits a clean model: Power Query for the shaping, a star schema for the relationships, SQL and Pandas for the groundwork.</p>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="sh"><h2>Journey so far</h2><p>From B.Sc. to a hands-on analytics internship, in order.</p></div>
+  <ol class="tl">
+    <li class="now"><h3>Data Science Intern, GradTwin (CodeNerds Program)</h3><small>May 2026 to present</small><p>EDA on real-world datasets of 10,000+ rows with Python and MySQL, ETL pipelines, data cleaning and wrangling, Jupyter reports and KPI dashboards, with findings shared in weekly sprint reviews.</p></li>
+    <li><h3>M.Sc. Computer Science</h3><small>Sathyabama Institute of Science and Technology, 2024 to 2026 · 71.3%</small><p>Postgraduate study alongside the analytics projects above.</p></li>
+    <li><h3>B.Sc. Computer Science</h3><small>Sathyabama Institute of Science and Technology, 2020 to 2024 · 83.8%</small><p>Where the foundation in programming and databases began.</p></li>
+  </ol>
+  <div class="certs" style="margin-top:14px">
+    <div><b>Python Programming</b>Space Zee Technologies · Pandas, file I/O, data manipulation</div>
+    <div><b>Power BI Dashboard Development</b>Microsoft Learn</div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <h2>Have data that needs a story?</h2>
+  <p style="max-width:48ch;color:var(--muted)">I’m looking for a Data Analyst role in Chennai. If you’re hiring, I’d love to talk.</p>
+  <div class="links">
+    <a class="btn" href="mailto:kishorekumar8805@gmail.com">kishorekumar8805@gmail.com</a>
+    <a class="btn" href="tel:+918056399776">+91 80563 99776</a>
+    <a class="btn" href="https://www.linkedin.com/in/kishore-l-204b5b262/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/Kishore26kumar" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+<footer>© 2026 Kishore Kumar L · Chennai, Tamil Nadu</footer>
+</div>
+
+<script>
+const D={
+  about:{sql:"SELECT name, role, city, status\nFROM kishore;",cols:["name","role","city","status"],rows:[["Kishore Kumar L","Entry-level Data Analyst","Chennai","Open to work"]]},
+  skills:{sql:"SELECT area, tools\nFROM skills\nORDER BY area;",cols:["area","tools"],rows:[
+    ["Languages","SQL (MySQL), Python"],["Python","Pandas, NumPy, Matplotlib, Seaborn"],["SQL","Joins, CTEs, window functions, subqueries"],
+    ["Power BI","DAX, time intelligence, Power Query, data modeling"],["Excel","Pivot tables, Power Query, XLOOKUP, VLOOKUP"],
+    ["Analysis","EDA, trend and correlation analysis, ETL, data cleaning"],["Fabric","OneLake, Lakehouse, Dataflows Gen2 (basics)"],["Tools","Jupyter, Colab, VS Code, Git, GitHub, n8n"]]},
+  projects:{sql:"SELECT title, stack, year\nFROM projects;",cols:["title","stack","year"],rows:[
+    ["Retail Sales Performance & Customer Intelligence","Power BI, DAX, Python, MySQL","2026"],["Uber Ride Data Analytics","Python, MySQL, Power BI","2026"]]},
+  experience:{sql:"SELECT role, company, since\nFROM experience;",cols:["role","company","since"],rows:[["Data Science Intern","GradTwin (CodeNerds Program)","May 2026"]]},
+  education:{sql:"SELECT degree, years, score\nFROM education\nORDER BY years DESC;",cols:["degree","years","score"],rows:[["M.Sc. Computer Science","2024-2026","71.3%"],["B.Sc. Computer Science","2020-2024","83.8%"]]}
+};
+const kw=/\b(SELECT|FROM|ORDER BY|DESC)\b/g;
+const chips=document.getElementById('chips'),sqlEl=document.getElementById('sql'),res=document.getElementById('res');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let token=0;
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+Object.keys(D).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.setAttribute('aria-pressed','false');b.onclick=()=>run(k);chips.appendChild(b)});
+function show(k){
+  const d=D[k];
+  res.innerHTML='<table><thead><tr>'+d.cols.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>'+
+    d.rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table><div class="n mono">'+d.rows.length+' row'+(d.rows.length>1?'s':'')+' returned</div>';
+}
+function paint(text,cursor){sqlEl.innerHTML=esc(text).replace(kw,'<span class="k">$1</span>').replace(/\n/g,'<br>')+(cursor?'<span class="c"></span>':'')}
+function run(k){
+  const my=++token,d=D[k];
+  [...chips.children].forEach(b=>b.setAttribute('aria-pressed',b.textContent===k));
+  res.innerHTML='';
+  if(reduce){paint(d.sql,false);show(k);return}
+  let i=0;
+  (function step(){
+    if(my!==token)return;
+    paint(d.sql.slice(0,i),true);
+    if(i<d.sql.length){i++;setTimeout(step,22)}else{setTimeout(()=>{if(my===token){paint(d.sql,false);show(k)}},260)}
+  })();
+}
+run('about');
+</script>
+</body>
+</html>
